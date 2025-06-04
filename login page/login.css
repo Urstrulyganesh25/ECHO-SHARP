@@ -1,0 +1,289 @@
+j@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    /* Updated to a stylish and attractive animated gradient background */
+    background: linear-gradient(270deg, #6a11cb, #2575fc, #ff416c, #ff4b2b);
+    background-size: 800% 800%;
+    animation: gradientShift 15s ease infinite;
+
+    background-position: center;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px #764ba2;
+    border-radius: 20px;
+    padding: 40px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    /* Added blur for frosted glass effect */
+}
+
+.wrapper:hover {
+    animation: colorShift 3s ease-in-out infinite alternate;
+}
+
+@keyframes colorShift {
+    0% {
+        box-shadow: 0 0 30px #667eea;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 50px #764ba2;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    100% {
+        box-shadow: 0 0 30px #667eea;
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sign-in {
+    transform: translateY(450px);
+}
+
+.wrapper .form-wrapper.sign-up {
+    position: absolute;
+    top: 450px;
+    left: 0;
+}
+
+.wrapper.active .form-wrapper.sign-up {
+    transform: translateY(-450px);
+}
+
+h2 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-group input {
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: -5px;
+}
+
+.remember {
+    margin: -5px 0 15px 5px;
+}
+
+.remember label {
+    color: #fff;
+    font-size: 14px;
+}
+
+.remember label input {
+    accent-color: #0ef;
+}
+
+button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #0ef;
+    box-shadow: 0 0 10px #0ef;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.signUp-link {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.signUp-link p {
+    color: #fff;
+}
+
+.signUp-link p a {
+    color: #0ef;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signUp-link p a:hover {
+    text-decoration: underline;
+}
+
+/* Additional attractive animations */
+
+/* Animate form titles on page load */
+h2 {
+    animation: fadeSlideIn 1s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input focus glow animation */
+.input-group input:focus {
+    box-shadow: 0 0 8px #667eea;
+    border-bottom: 2px solid #667eea;
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Button hover scale and shadow */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #0ef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Moving cute characters around login container */
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.character {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+/* Example character 1 - moves in a circular path */
+.character1 {
+    top: -30px;
+    left: -30px;
+    background-image: url('../images/character1.png'); /* Replace with actual cute character image path */
+    animation: moveCircle1 8s linear infinite;
+}
+
+/* Example character 2 - moves horizontally */
+.character2 {
+    bottom: -30px;
+    right: -30px;
+    background-image: url('../images/character2.png'); /* Replace with actual cute character image path */
+    animation: moveHorizontal 6s ease-in-out infinite alternate;
+}
+
+/* Example character 3 - moves vertically */
+.character3 {
+    top: 50%;
+    right: -40px;
+    background-image: url('../images/character3.png'); /* Replace with actual cute character image path */
+    animation: moveVertical 5s ease-in-out infinite alternate;
+    transform: translateY(-50%);
+}
+
+@keyframes moveCircle1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(20px, 20px);
+    }
+    50% {
+        transform: translate(0, 40px);
+    }
+    75% {
+        transform: translate(-20px, 20px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes moveHorizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-40px);
+    }
+}
+
+@keyframes moveVertical {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(30px);
+    }
+}
